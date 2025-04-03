@@ -6,11 +6,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+	baseDirectory: __dirname,
 });
 
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+	// ignore components/ui
+	{
+		ignores: ["components/ui/**/*.{tsx,ts}"],
+	},
+	...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
 export default eslintConfig;
