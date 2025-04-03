@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 	experimental: {
 		reactCompiler: true,
 		webpackMemoryOptimizations: true,
+		optimizePackageImports: ["@chakra-ui/react"],
 	},
 };
 
